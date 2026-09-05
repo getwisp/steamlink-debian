@@ -4,23 +4,23 @@ This repository provides a way to run Debian GNU/Linux on a Valve Steam Link dev
 
 ```
 debian@steamlink:~$ fastfetch
-       _,met$$$$$gg.           debian@steamlink
-    ,g$$$$$$$$$$$$$$$P.        ----------------
-  ,g$$P"         """Y$$.".     OS: Debian GNU/Linux trixie 13.6 armv7l
- ,$$P'               `$$$.     Host: Valve Steam Link
+        _,met$$$$$gg.          debian@steamlink
+     ,g$$$$$$$$$$$$$$$P.       ----------------
+   ,g$$P""       """Y$$.".     OS: Debian GNU/Linux 13 (trixie) armv7l
+  ,$$P'              `$$$.     Host: Valve Steam Link
 ',$$P       ,ggs.     `$$b:    Kernel: Linux 6.12.108-steam
-`d$$'     ,$P"'   .    $$$     Uptime: 9 mins
- $$P      d$'     ,    $$$P    Packages: 191 (dpkg)
- $$:      $.   -    ,d$$'      Shell: bash 5.2.15
+`d$$'     ,$P"'   .    $$$     Uptime: 5 mins
+ $$P      d$'     ,    $$P     Packages: 180 (dpkg)
+ $$:      $$.   -    ,d$$'     Shell: bash 5.2.37
  $$;      Y$b._   _,d$P'       Terminal: /dev/pts/0
- Y$$.    `.`"Y$$$$P"'          CPU: Marvell Berlin
- `$$b      "-.__               Memory: 29.66 MiB / 498.16 MiB (6%)
-  `Y$$                         Swap: Disabled
-   `Y$$.                       Disk (/): 325.80 MiB / 989.67 MiB (33%) - ext3 [External]
-     `$$b.                     Local IP (eth0): 192.168.1.7/24
+ Y$$.    `.`"Y$$$$P"'          CPU: berlin2cd
+ `$$b      "-.__               Memory: 85.89 MiB / 497.17 MiB (17%)
+  `Y$$b                        Swap: Disabled
+   `Y$$.                       Disk (/): 286.99 MiB / 989.67 MiB (29%) - ext3 [External]
+     `$$b.                     Local IP (eth0): 192.168.1.42/24
        `Y$$b.                  Locale: C
-          `"Y$b._
-             `"""
+         `"Y$b._
+             `""""
 ```
 
 ## How to use
