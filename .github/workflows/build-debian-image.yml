@@ -68,6 +68,8 @@ jobs:
   build-rootfs:
     runs-on: ubuntu-latest
     needs: build-kernel
+    permissions:
+      contents: write
     steps:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends bash parted xz-utils
@@ -115,3 +117,10 @@ jobs:
         with:
           name: steamlink-debian-${{ inputs.debian_version }}-${{ inputs.kernel_version }}-image
           path: steamlink-debian-${{ inputs.debian_version }}-${{ inputs.kernel_version }}.img.xz
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.debian_version }}-${{ inputs.kernel_version }}-${{ github.run_number }}
+          name: steamlink-debian ${{ inputs.debian_version }} (kernel ${{ inputs.kernel_version }})
+          files: steamlink-debian-${{ inputs.debian_version }}-${{ inputs.kernel_version }}.img.xz
