@@ -10,10 +10,6 @@ on:
         options:
           - "6.12.108"
           - "6.1.115"
-      kernel_branch:
-        description: "Kernel branch to build"
-        required: true
-        default: "v6.x"
       debian_version:
         description: "Debian version to use"
         required: true
@@ -40,7 +36,9 @@ jobs:
           submodules: "true"
 
       - name: Download Kernel
-        run: wget https://cdn.kernel.org/pub/linux/kernel/${{ inputs.kernel_branch }}/linux-${{ inputs.kernel_version }}.tar.xz
+        env:
+          KERNEL_VERSION: ${{ inputs.kernel_version }}
+        run: wget https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_VERSION%%.*}.x/linux-${KERNEL_VERSION}.tar.xz
 
       - name: Extract Kernel
         run: tar -xf linux-${{ inputs.kernel_version }}.tar.xz
