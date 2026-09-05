@@ -11,11 +11,6 @@ COPY ./rootfs/boot/* /boot/
 COPY ./rootfs/usr/bin/* /usr/bin/
 COPY ./rootfs/steamlink/ /steamlink/
 
-# Preset the hostname. These must be COPY and not RUN: /etc/hostname and
-# /etc/hosts are bind-mounted during RUN steps, so writes there are discarded
-# and never reach the exported rootfs.
-COPY ./rootfs/etc/ /etc/
-
 # Add repositories (trixie uses non-free-firmware)
 RUN rm -rf /etc/apt/sources.list.d/* || true
 RUN echo "deb http://deb.debian.org/debian $DEBIAN_VERSION main contrib non-free non-free-firmware" > /etc/apt/sources.list
@@ -24,7 +19,7 @@ RUN echo "deb http://deb.debian.org/debian $DEBIAN_VERSION-updates main contrib 
 
 # Install basic system components
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    systemd systemd-timesyncd dbus ca-certificates dhcpcd5 nano vim \
+    systemd systemd-sysv systemd-timesyncd dbus ca-certificates dhcpcd5 nano vim \
     openssh-server sudo ifupdown net-tools udev iputils-ping wget \
     dosfstools unzip binutils libatomic1 initramfs-tools e2fsprogs \
     parted firmware-libertas wireless-regdb \
