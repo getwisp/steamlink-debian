@@ -46,12 +46,14 @@ For the first boot a LAN connection is required. Once the new kernel starts boot
 
 ### Change hostname
 
-This the first thing you should do after logging in, some commands might not work without a proper hostname.
+The image ships with the hostname `steamlink` already set, so there is nothing to do here unless you want a different one:
 
 ```bash
-sudo hostnamectl set-hostname steamlink
-echo '127.0.0.1 steamlink' | sudo tee -a /etc/hosts
+sudo hostnamectl set-hostname yourname
+sudo sed -i 's/steamlink/yourname/' /etc/hosts
 ```
+
+Keep `/etc/hosts` in sync with the hostname, otherwise `sudo` complains that it cannot resolve the host.
 
 ### Resize root partition to full disk size
 

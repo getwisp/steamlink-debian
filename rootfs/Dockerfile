@@ -11,6 +11,11 @@ COPY ./rootfs/boot/* /boot/
 COPY ./rootfs/usr/bin/* /usr/bin/
 COPY ./rootfs/steamlink/ /steamlink/
 
+# Preset the hostname. These must be COPY and not RUN: /etc/hostname and
+# /etc/hosts are bind-mounted during RUN steps, so writes there are discarded
+# and never reach the exported rootfs.
+COPY ./rootfs/etc/ /etc/
+
 # Add repositories (trixie uses non-free-firmware)
 RUN rm -rf /etc/apt/sources.list.d/* || true
 RUN echo "deb http://deb.debian.org/debian $DEBIAN_VERSION main contrib non-free non-free-firmware" > /etc/apt/sources.list
