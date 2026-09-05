@@ -5,20 +5,23 @@ on:
       kernel_version:
         description: "Kernel version to build"
         required: true
-        default: "5.10.228"
+        default: "6.1.115"
       kernel_branch:
         description: "Kernel branch to build"
         required: true
-        default: "v5.x"
+        default: "v6.x"
       debian_version:
         description: "Debian version to use"
         required: true
-        default: "bullseye"
+        type: choice
+        default: "trixie"
+        options:
+          - trixie
 
 jobs:
   build-kernel:
     runs-on: ubuntu-latest
-    container: debian:bookworm-slim
+    container: debian:trixie-slim
     timeout-minutes: 30
     permissions:
       contents: read
@@ -28,7 +31,7 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends bash ca-certificates git tar xz-utils wget build-essential flex bison libssl-dev libelf-dev bc kmod
 
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: "true"
 
@@ -70,7 +73,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends bash parted xz-utils
 
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: "false"
 
@@ -80,7 +83,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: kernel-${{ inputs.kernel_version }}-steam
           path: kernel-${{ inputs.kernel_version }}

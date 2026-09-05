@@ -1,0 +1,19 @@
+# Build artifacts
+*.img
+*.img.xz
+*.tar
+linux-*/
+/boot/
+kernel-*/
+zImage
+*.dtb
+config-*-steam
+
+# Docker files
+*.tar
+steamlink-debian.tar
+
+# Generic
+*~
+.vscode/
+.idea/
