@@ -3,9 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       kernel_version:
-        description: "Kernel version to build"
+        description: "Kernel version to build (needs a matching kernel/<version>.config)"
         required: true
-        default: "6.1.115"
+        type: choice
+        default: "6.12.108"
+        options:
+          - "6.12.108"
+          - "6.1.115"
       kernel_branch:
         description: "Kernel branch to build"
         required: true
