@@ -6,7 +6,7 @@ This repository provides a way to run Debian GNU/Linux on a Valve Steam Link dev
 debian@steamlink:~$ fastfetch
        _,met$$$$$gg.           debian@steamlink
     ,g$$$$$$$$$$$$$$$P.        ----------------
-  ,g$$P"         """Y$$.".     OS: Debian GNU/Linux bookworm 12.7 armv7l
+  ,g$$P"         """Y$$.".     OS: Debian GNU/Linux trixie 13.6 armv7l
  ,$$P'               `$$$.     Host: Valve Steam Link
 ',$$P       ,ggs.     `$$b:    Kernel: Linux 6.1.115-steam
 `d$$'     ,$P"'   .    $$$     Uptime: 9 mins
@@ -25,7 +25,7 @@ debian@steamlink:~$ fastfetch
 
 ## How to use
 
-Download an image of Debian version of your choice from the [Releases](https://github.com/djmuted/steamlink-debian/releases) page and flash it on a 2GB (or bigger) USB stick using [balenaEtcher](https://etcher.balena.io/) or any other USB flasher. SD cards paired with a USB SD Reader work as well.
+Download an image of Debian version of your choice from the [Releases](https://github.com/getwisp/steamlink-debian/releases) page and flash it on a 2GB (or bigger) USB stick using [balenaEtcher](https://etcher.balena.io/) or any other USB flasher. SD cards paired with a USB SD Reader work as well.
 
 > :warning: **Warning**: Flashing the image on the USB stick will wipe all data stored on the device!
 
