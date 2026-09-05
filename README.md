@@ -76,8 +76,9 @@ This might take a while, depending on your disk size.
 - NAND driver
 - DMA controller
 - video/audio output
-- suspend/resume/halt/reboot
-- RTC
+- suspend/resume
+- halt/reboot. The system shuts down, but nothing on the board can restart it, so it hangs and never comes back on the network. Physically power cycling the device boots it back into Debian as usual.
+- RTC. There is no clock to read at boot, so the time is set by systemd-timesyncd once the network is up.
 
 ## Credits
 
