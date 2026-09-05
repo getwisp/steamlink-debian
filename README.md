@@ -71,6 +71,18 @@ sudo resize2fs /dev/sda1
 
 This might take a while, depending on your disk size.
 
+### Connect to WiFi
+
+Ethernet works out of the box. For WiFi, write a supplicant configuration for the `mlan0` interface and enable the matching service:
+
+```bash
+wpa_passphrase 'YourSSID' 'YourPassword' | sudo tee /etc/wpa_supplicant/wpa_supplicant-mlan0.conf > /dev/null
+sudo chmod 600 /etc/wpa_supplicant/wpa_supplicant-mlan0.conf
+sudo systemctl enable --now wpa_supplicant@mlan0
+```
+
+The file holds your pre-shared key, hence the `chmod`. `dhcpcd` requests a lease by itself once the interface associates. Tested against WPA2 on 2.4 GHz.
+
 ## What does not work
 
 - NAND driver

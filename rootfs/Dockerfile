@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     systemd systemd-sysv systemd-timesyncd dbus ca-certificates dhcpcd5 nano vim \
     openssh-server sudo ifupdown net-tools udev iputils-ping wget \
     dosfstools unzip binutils libatomic1 initramfs-tools e2fsprogs \
-    parted firmware-libertas wireless-regdb \
+    parted firmware-libertas wireless-regdb wpasupplicant iw \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
